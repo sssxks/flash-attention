@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=68", "wheel", "packaging"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "flash-attn-3"
+dynamic = ["version"]
+description = "FlashAttention-3"
+readme = {file = "../README.md", content-type = "text/markdown"}
+requires-python = ">=3.8"
+license = {file = "../LICENSE"}
+authors = [{name = "FlashAttention Contributors"}]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: Apache Software License",
+  "Operating System :: Unix",
+]
+dependencies = [
+  "torch",
+  "einops",
+  "packaging",
+  "ninja",
+]
+
+[project.urls]
+Homepage = "https://github.com/sssxks/flash-attention"
+Source = "https://github.com/sssxks/flash-attention"
+
+[tool.setuptools.dynamic]
+version = {attr = "flash_attn_3.__version__"}
+
+[tool.setuptools.package-dir]
+flash_attn_3 = "."
+
+[tool.setuptools]
+packages = ["flash_attn_3"]
+py-modules = ["flash_attn_interface"]
+include-package-data = true
